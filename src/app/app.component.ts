@@ -1,6 +1,6 @@
 /*
 Lord Mendoza - G00841164
-SWE 642 - HW2
+SWE 642 - HW3
 */
 
 import {Component} from '@angular/core';
