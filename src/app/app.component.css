@@ -1,0 +1,57 @@
+/*
+Lord Mendoza - G00841164
+SWE 642 - HW2
+*/
+
+.header {
+  background-color: #006633;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.headerTitle {
+  margin: auto;
+  vertical-align: middle;
+  color: #FFCC33;
+}
+
+.navbar-brand {
+  padding: 10px;
+}
+
+.container-fluid.mainNav {
+  background-color: grey;
+}
+
+nav.navbar.navbar-expand-lg.bg-body-tertiary {
+  padding-top: 0;
+  padding-bottom: 0 !important;
+}
+
+a.nav-link, a.navbar-brand {
+  color: white;
+}
+
+.webpage {
+  padding: 10px;
+  background-color: white !important;
+
+}
+
+h1 {
+  color: #006633 !important;
+}
+
+.requiredSymbol {
+  color: red;
+  font-weight: bold;
+}
+
+.surveyLink {
+  text-decoration-line: underline;
+  cursor: pointer;
+}
+
+.row {
+  padding: 5px;
+}
