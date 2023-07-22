@@ -9,6 +9,18 @@ import axios from 'axios';
 // @ts-ignore
 import * as xmlToJSON from "xmlToJSON";
 
+interface SurveyData {
+  firstName: string,
+  lastName: string,
+  streetAddress: string,
+  city: string,
+  state: string,
+  zip: string,
+  telephoneNo: string,
+  email: string,
+  dateOfSurvey: Date
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -16,7 +28,19 @@ import * as xmlToJSON from "xmlToJSON";
 })
 export class AppComponent {
   title = 'SWE642-Assignment3';
+  previousSurveyData: SurveyData[] = [];
 
+  requiredFields = [
+    "inputFirstName",
+    "inputLastName",
+    "inputStreetAddress",
+    "inputCityAddress",
+    "inputStateAddress",
+    "inputZipAddress",
+    "inputTelephone",
+    "inputEmail",
+    "inputDate"
+  ];
   constructor(private modalService: NgbModal) {
   }
 
@@ -36,6 +60,9 @@ export class AppComponent {
 
     // @ts-ignore
     document.getElementById("personalInfoAlert").style.display = 'none'
+
+    if (targetPage === "allSurvey")
+      this.getPreviousSurveyData();
   }
 
   isEmptyString(val: any) {
@@ -43,21 +70,9 @@ export class AppComponent {
   }
 
   validateSurveyData() {
-    let requiredFields = [
-      "inputFirstName",
-      "inputLastName",
-      "inputStreetAddress",
-      "inputCityAddress",
-      "inputStateAddress",
-      "inputZipAddress",
-      "inputTelephone",
-      "inputEmail",
-      "inputDate"
-    ];
-
     let hasMissingRequiredField = false;
-    for (let i = 0; i < requiredFields.length; i++) {
-      let currentRequiredField = requiredFields[i];
+    for (let i = 0; i < this.requiredFields.length; i++) {
+      let currentRequiredField = this.requiredFields[i];
 
       // @ts-ignore
       let currentRequiredFieldValue = document.getElementById(currentRequiredField).value;
@@ -143,10 +158,6 @@ export class AppComponent {
     }
   }
 
-  submitSurveyForm() {
-    alert("Submitted!");
-  }
-
   resetSurveyForm() {
     // @ts-ignore
     document.getElementById("personalInfoAlert").style.display = 'none';
@@ -191,5 +202,84 @@ export class AppComponent {
       // @ts-ignore
       document.getElementById("inputStateAddress").value = '';
     }
+  }
+
+  submitSurveyForm() {
+    //TODO: Change the url here Veeda once you got the API set up
+    let apiUrl = '/survey/submitSurvey';
+
+    let fieldsMapping = {
+      "inputFirstName": "firstName",
+      "inputLastName": "lastName",
+      "inputStreetAddress": "streetAddress",
+      "inputCityAddress": "city",
+      "inputStateAddress": "state",
+      "inputZipAddress": "zip",
+      "inputTelephone": "telephoneNo",
+      "inputEmail": "email",
+      "inputDate": "dateOfSurvey"
+    };
+
+    let postData = {};
+    for (let i = 0; i < this.requiredFields.length; i++) {
+      let currentRequiredField = this.requiredFields[i];
+
+      // @ts-ignore
+      let currentRequiredFieldValue = document.getElementById(currentRequiredField).value;
+
+      if (!this.isEmptyString(currentRequiredFieldValue)) {
+        // @ts-ignore
+        postData[fieldsMapping[currentRequiredField]] = currentRequiredFieldValue;
+      }
+    }
+
+    axios.post(apiUrl, postData)
+      .then(response => {
+        alert("Form Submitted!")
+      }).catch(() => {
+        alert("Form Submitted! - Test")
+    })
+  }
+
+  getPreviousSurveyData() {
+    //TODO: Change the url here Veeda once you got the API set up
+    let apiUrl = '/survey/getListOfAllSurveys';
+
+    axios.get(apiUrl)
+      .then(response => {
+        let data = response.data;
+
+        if (Array.isArray(data) && data.length > 0) {
+          this.previousSurveyData = data;
+        } else {
+          this.previousSurveyData = [];
+        }
+      }).catch(() => {
+      //TODO: Delete this sample data
+      this.previousSurveyData = [
+        {
+          firstName: "Lord",
+          lastName: "Mendoza",
+          streetAddress: "123 Sesame St",
+          city: "Vienna",
+          state: "VA",
+          zip: "22181",
+          telephoneNo: "111-111-1111",
+          email: "sample@email.com",
+          dateOfSurvey: new Date()
+        },
+        {
+          firstName: "Veeda",
+          lastName: "Sherzadah",
+          streetAddress: "123 Clown Dr.",
+          city: "Arlington",
+          state: "VA",
+          zip: "23417",
+          telephoneNo: "222-222-2222",
+          email: "clownjuice@email.com",
+          dateOfSurvey: new Date()
+        }
+      ];
+    })
   }
 }

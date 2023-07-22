@@ -65,7 +65,7 @@
       Please take the time to fill in our <a class="surveyLink" (click)="viewPage('survey')">student survey</a>!
     </p>
     <p>
-      You can view previous survey data <a class="surveyLink" (click)="viewPage('survey')">here</a>.
+      You can view previous survey data <a class="surveyLink" (click)="viewPage('allSurvey')">here</a>.
     </p>
   </div>
 
@@ -77,99 +77,13 @@
     <form autocomplete="on" id="surveyForm" onsubmit="validateSurveyData(); return false;">
       <div class="card" style="margin-bottom: 10px;">
         <div class="card-body">
-          <h5 class="card-title">Feedback Questions</h5>
-
-          <label class="form-label">What did you like most about the campus?<span
-            class="requiredSymbol">*</span></label>
-
-          <div class="form-check">
-            <label for="checkStud">Students</label>
-            <input class="form-check-input" type="checkbox" value="" id="checkStud">
-          </div>
-
-          <div class="form-check">
-            <label for="checkLoc">Location</label>
-            <input class="form-check-input" type="checkbox" value="" id="checkLoc">
-          </div>
-
-          <div class="form-check">
-            <label for="checkCamp">Campus</label>
-            <input class="form-check-input" type="checkbox" value="" id="checkCamp">
-          </div>
-
-          <div class="form-check">
-            <label for="checkAtm">Atmosphere</label>
-            <input class="form-check-input" type="checkbox" value="" id="checkAtm">
-          </div>
-
-          <div class="form-check">
-            <label for="checkDorm">Dorm</label>
-            <input class="form-check-input" type="checkbox" value="" id="checkDorm">
-          </div>
-
-          <div class="form-check">
-            <label for="checkSport">Sports</label>
-            <input class="form-check-input" type="checkbox" value="" id="checkSport">
-          </div>
-
-          <div class="mb-3">
-            <label class="form-label">How'd you became interested in the University?<span
-              class="requiredSymbol">*</span></label>
-
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexInterest" id="flexFriend">
-              <label class="form-check-label" for="flexFriend">
-                Friends
-              </label>
-            </div>
-
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexInterest" id="flexTel">
-              <label class="form-check-label" for="flexTel">
-                Television
-              </label>
-            </div>
-
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexInterest" id="flexInt">
-              <label class="form-check-label" for="flexInt">
-                Internet
-              </label>
-            </div>
-
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexInterest" id="flexOther">
-              <label class="form-check-label" for="flexOther">
-                Other
-              </label>
-            </div>
-          </div>
-
-          <div class="mb-3">
-            <label class="form-label">How Likely Are You Recommend GMU?</label>
-            <select name="recommendLikelihood" class="form-select">
-              <option value="veryLikely" selected>Very Likely</option>
-              <option value="likely">Likely</option>
-              <option value="unlikely">Unlikely</option>
-            </select>
-          </div>
-
-          <div class="mb-3">
-            <label class="form-label" for="textAreaComment">What else would you like to say?</label>
-            <textarea name="moreFeedback" class="form-control" id="textAreaComment" rows="3"
-                      placeholder="Any feedback is important!"
-                      autofocus></textarea>
-          </div>
-
-          <hr/>
-
           <h5 class="card-title">Personal Information</h5>
 
           <div class="row align-items-start">
             <div class="col">
-                <label for="inputFirstName" class="form-label">First Name <span
-                  class="requiredSymbol">*</span></label>
-                <input name="name" type="text" class="form-control" id="inputFirstName" placeholder="First Name" required>
+              <label for="inputFirstName" class="form-label">First Name <span
+                class="requiredSymbol">*</span></label>
+              <input name="name" type="text" class="form-control" id="inputFirstName" placeholder="First Name" required>
             </div>
 
             <div class="col">
@@ -244,7 +158,92 @@
             </div>
           </div>
 
-          <button type="reset" class="btn btn-secondary" style="margin-top: 10px; margin-right: 5px;" (click)="resetSurveyForm()">Cancel
+          <hr/>
+
+          <h5 class="card-title">Feedback Questions</h5>
+
+          <label class="form-label">What did you like most about the campus?</label>
+
+          <div class="form-check">
+            <label for="checkStud">Students</label>
+            <input class="form-check-input" type="checkbox" value="" id="checkStud">
+          </div>
+
+          <div class="form-check">
+            <label for="checkLoc">Location</label>
+            <input class="form-check-input" type="checkbox" value="" id="checkLoc">
+          </div>
+
+          <div class="form-check">
+            <label for="checkCamp">Campus</label>
+            <input class="form-check-input" type="checkbox" value="" id="checkCamp">
+          </div>
+
+          <div class="form-check">
+            <label for="checkAtm">Atmosphere</label>
+            <input class="form-check-input" type="checkbox" value="" id="checkAtm">
+          </div>
+
+          <div class="form-check">
+            <label for="checkDorm">Dorm</label>
+            <input class="form-check-input" type="checkbox" value="" id="checkDorm">
+          </div>
+
+          <div class="form-check">
+            <label for="checkSport">Sports</label>
+            <input class="form-check-input" type="checkbox" value="" id="checkSport">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">How'd you became interested in the University?</label>
+
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexInterest" id="flexFriend">
+              <label class="form-check-label" for="flexFriend">
+                Friends
+              </label>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexInterest" id="flexTel">
+              <label class="form-check-label" for="flexTel">
+                Television
+              </label>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexInterest" id="flexInt">
+              <label class="form-check-label" for="flexInt">
+                Internet
+              </label>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexInterest" id="flexOther">
+              <label class="form-check-label" for="flexOther">
+                Other
+              </label>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">How Likely Are You Recommend GMU?</label>
+            <select name="recommendLikelihood" class="form-select">
+              <option value="veryLikely" selected>Very Likely</option>
+              <option value="likely">Likely</option>
+              <option value="unlikely">Unlikely</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label" for="textAreaComment">What else would you like to say?</label>
+            <textarea name="moreFeedback" class="form-control" id="textAreaComment" rows="3"
+                      placeholder="Any feedback is important!"
+                      autofocus></textarea>
+          </div>
+
+          <button type="reset" class="btn btn-secondary" style="margin-top: 10px; margin-right: 5px;"
+                  (click)="resetSurveyForm()">Cancel
           </button>
           <button type="submit" class="btn btn-primary" style="margin-top: 10px;" (click)="validateSurveyData()">
             Submit
@@ -254,7 +253,41 @@
     </form>
   </div>
 
-  <div id="allSurvey" class="webpage survey" style="display: none;">
+  <div id="allSurvey" class="webpage allSurvey" style="display: none;">
     <h4>Here are a list of info from previous survey taken:</h4>
+
+    <div class="card" style="margin-bottom: 10px;">
+      <div class="card-body">
+        <h5 class="card-title">Computer Science</h5>
+        <table class="table">
+          <thead>
+          <tr>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Street Address</th>
+            <th scope="col">City</th>
+            <th scope="col">State</th>
+            <th scope="col">Zip</th>
+            <th scope="col">Tel. No.</th>
+            <th scope="col">Email</th>
+            <th scope="col">Date of Survey</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let surveyData of previousSurveyData;">
+            <td>{{ surveyData.firstName}}</td>
+            <td>{{ surveyData.lastName}}</td>
+            <td>{{ surveyData.streetAddress}}</td>
+            <td>{{ surveyData.city}}</td>
+            <td>{{ surveyData.state}}</td>
+            <td>{{ surveyData.zip}}</td>
+            <td>{{ surveyData.telephoneNo}}</td>
+            <td>{{ surveyData.email}}</td>
+            <td>{{ surveyData.dateOfSurvey}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>
