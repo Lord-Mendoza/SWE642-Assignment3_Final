@@ -1,6 +1,7 @@
 /*
 Lord Mendoza - G00841164
 SWE 642 - HW3
+The following file defines all functionality of the webpage for submitting/resetting the survey, retrieving city/state based on zip, etc.
 */
 
 import {Component} from '@angular/core';
@@ -41,6 +42,7 @@ export class AppComponent {
     "inputEmail",
     "inputDate"
   ];
+
   constructor(private modalService: NgbModal) {
   }
 
@@ -237,7 +239,7 @@ export class AppComponent {
       .then(response => {
         alert("Form Submitted!")
       }).catch(() => {
-        alert("Form Submitted! - Test")
+      alert("Form Submitted! - Test")
     })
   }
 
