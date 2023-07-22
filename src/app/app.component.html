@@ -1,449 +1,260 @@
 <div>
 
-<!--header-->
-<nav class="navbar header">
+  <!--header-->
+  <nav class="navbar header">
   <span class="navbar-brand mb-0 h1"><a (click)="viewPage('welcomePage')"><img src="./assets/logo.png" width="30"
                                                                                height="30" alt=""></a>
     <span class="headerTitle"
           (click)="viewPage('welcomePage')">George Mason University - Department of Computer Science</span>
   </span>
-</nav>
+  </nav>
 
-<!-- navbar -->
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid mainNav">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" (click)="(viewPage('welcomePage'))">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" (click)="viewPage('msDegreeList')">MS Degree List</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" (click)="viewPage('requiredCoursesPerDegree')">Required Courses Per Degree</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" (click)="viewPage('survey')">Survey</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<!-- welcome page -->
-<div id="welcomePage" class="webpage welcomePage">
-  <h1>Information Page</h1>
-  <p>Welcome to the Department of Computer Science at George Mason University!
-
-  <p>With nearly 80 full-time faculty members, the CS Department at Mason is the largest department in the College of
-    Engineering and Computing, one of the largest departments on campus, and the largest, fastest growing, and
-    highest
-    ranked Computer Science department in the Commonwealth of Virginia.</p>
-
-  <p>Today, not only is computing pervasive in society, but computational methods are used in almost every field of
-    scholarly endeavor ranging from the arts and humanities to the hard sciences and engineering, as well as every
-    sector
-    of industry. Given the importance of computing in today's world, we strongly support the goal of "Computing for
-    All",
-    providing a diverse array of programs and courses in computing to students from all backgrounds and at all
-    levels.</p>
-
-  <p>
-    I invite you to come visit and explore our programs as a current or prospective student or faculty member; to
-    partner with us to help provide talented students for your company or organization; to keep us informed about
-    your
-    accomplishments as alumni; to explore collaborations with us in both research and education; and to make us
-    aware of
-    any new initiatives you may like to pursue with us. Please explore our website to learn more about the CS
-    Department
-    at Mason!
-  </p>
-
-  <p>
-    Please take the time to fill in our <a class="surveyLink" (click)="viewPage('survey')">survey</a>!
-  </p>
-</div>
-
-<div id="msDegreeList" class="webpage msDegreeList" style="display: none;">
-  <h1>MS Degree List</h1>
-  <h4>The following are the Master's degrees offered by the department:</h4>
-  <ul>
-    <li>Computer Science</li>
-    <li>Information Security and Assurance</li>
-    <li>Information Systems</li>
-    <li>Software Engineering</li>
-  </ul>
-</div>
-
-<div id="requiredCoursesPerDegree" class="webpage requiredCoursesPerDegree" style="display: none;">
-  <h1>Required Courses</h1>
-  <h4>Use the tables below to determine which courses you need:</h4>
-
-  <div class="card" style="margin-bottom: 10px;">
-    <div class="card-body">
-      <h5 class="card-title">Computer Science</h5>
-      <table class="table">
-        <thead>
-        <tr>
-          <th scope="col">Course Number</th>
-          <th scope="col">Course Name</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <th>CS 550</th>
-          <td>Database Systems</td>
-        </tr>
-        <tr>
-          <th>CS 580</th>
-          <td>Introduction to Artificial Intelligence</td>
-        </tr>
-        <tr>
-          <th>CS 584</th>
-          <td>Theory and Applications of Data Mining</td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">Software Engineering</h5>
-      <table class="table">
-        <thead>
-        <tr>
-          <th scope="col">Course Number</th>
-          <th scope="col">Course Name</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <th>SWE 619</th>
-          <td>Software Engineering</td>
-        </tr>
-        <tr>
-          <th>SWE 621</th>
-          <td>Software Design and Architecture</td>
-        </tr>
-        <tr>
-          <th>SWE 632</th>
-          <td>Software Design and Architecture</td>
-        </tr>
-        <tr>
-          <th>SWE 637</th>
-          <td>Software Testing</td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
-
-<div id="survey" class="webpage survey" style="display: none;" onload="setUserNameAndTimeOfDay();">
-  <h1 id="welcomeUserMessage"></h1>
-
-  <div class="modal fade" id="confirmUserModal" tabindex="-1" aria-labelledby="confirmUserModal" aria-hidden="true"
-       data-bs-backdrop="static" data-bs-keyboard="false">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title">Welcome!</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <p id="confirmUserQuestion"></p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" (click)="openUsernamePrompt()">No</button>
-          <button type="button" class="btn btn-success" (click)="setUserNameAndTimeOfDay(true)">Yes</button>
-        </div>
+  <!-- navbar -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid mainNav">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" (click)="(viewPage('welcomePage'))">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="viewPage('survey')">Student Survey</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="viewPage('allSurvey')">List All Survey</a>
+          </li>
+        </ul>
       </div>
     </div>
+  </nav>
+
+  <!-- welcome page -->
+  <div id="welcomePage" class="webpage welcomePage">
+    <h1>Information Page</h1>
+    <p>Welcome to the Department of Computer Science at George Mason University!
+
+    <p>With nearly 80 full-time faculty members, the CS Department at Mason is the largest department in the College of
+      Engineering and Computing, one of the largest departments on campus, and the largest, fastest growing, and
+      highest
+      ranked Computer Science department in the Commonwealth of Virginia.</p>
+
+    <p>Today, not only is computing pervasive in society, but computational methods are used in almost every field of
+      scholarly endeavor ranging from the arts and humanities to the hard sciences and engineering, as well as every
+      sector
+      of industry. Given the importance of computing in today's world, we strongly support the goal of "Computing for
+      All",
+      providing a diverse array of programs and courses in computing to students from all backgrounds and at all
+      levels.</p>
+
+    <p>
+      I invite you to come visit and explore our programs as a current or prospective student or faculty member; to
+      partner with us to help provide talented students for your company or organization; to keep us informed about
+      your
+      accomplishments as alumni; to explore collaborations with us in both research and education; and to make us
+      aware of
+      any new initiatives you may like to pursue with us. Please explore our website to learn more about the CS
+      Department
+      at Mason!
+    </p>
+
+    <p>
+      Please take the time to fill in our <a class="surveyLink" (click)="viewPage('survey')">student survey</a>!
+    </p>
+    <p>
+      You can view previous survey data <a class="surveyLink" (click)="viewPage('survey')">here</a>.
+    </p>
   </div>
 
-  <div class="modal fade" id="usernameInputModal" tabindex="-1" aria-labelledby="usernameInputModal"
-       aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title">Welcome!</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form onsubmit="setUsernameToCookie(); return false;">
-            <label for="welcomeUsername" class="form-label">What is your name?</label>
-            <input name="name" type="text" class="form-control" id="welcomeUsername" placeholder="Name"
-                   required>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" (click)="setUsernameToCookie()">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div id="survey" class="webpage survey" style="display: none;">
+    <h1 id="welcomeUserMessage"></h1>
 
-  <h4>Please fill in the following survey:</h4>
+    <h4>Please fill in the following survey:</h4>
 
-  <div class="card" style="margin-bottom: 10px;">
-    <div class="card-body">
-      <h5 class="card-title">Data Computation</h5>
-      <p>Please input 10 comma-separated values below to be calculated, with each value between 1-100, inclusive.</p>
+    <form autocomplete="on" id="surveyForm" onsubmit="validateSurveyData(); return false;">
+      <div class="card" style="margin-bottom: 10px;">
+        <div class="card-body">
+          <h5 class="card-title">Feedback Questions</h5>
 
-      <div class="row align-items-start" id="dataAlert">
-        <div class="col">
-          <div class="alert alert-danger" role="alert" id="dataAlertMessage"></div>
-        </div>
-      </div>
-
-      <div class="row align-items-start">
-        <div class="col">
-          <form id="dataFormField" onsubmit="calculateData(); return false;">
-            <label for="dataValueField" class="form-label">Data:</label>
-            <input name="dataValueField" type="text" class="form-control" id="dataValueField"
-                   placeholder="ex. [1,2, ..., 10]" required (focusout)="calculateData()">
-          </form>
-        </div>
-      </div>
-
-      <div class="row align-items-start">
-        <div class="col">
-          <label for="averageValueField" class="form-label">Average</label>
-          <input name="averageValueField" type="text" class="form-control" id="averageValueField" disabled>
-        </div>
-
-        <div class="col">
-          <label for="maxValueField" class="form-label">Maximum</label>
-          <input name="maxValueField" type="text" class="form-control" id="maxValueField" disabled>
-        </div>
-      </div>
-
-      <button type="reset" class="btn btn-secondary" style="margin-top: 10px;" (click)="resetData()">Reset</button>
-      <button type="submit" class="btn btn-primary" style="margin-top: 10px;" (click)="calculateData()">Submit</button>
-    </div>
-  </div>
-
-  <form autocomplete="on" id="surveyForm" onsubmit="validateSurveyData(); return false;">
-    <div class="card" style="margin-bottom: 10px;">
-      <div class="card-body">
-        <h5 class="card-title">Feedback Questions</h5>
-
-        <label class="form-label">What did you like most about the campus?<span
-          class="requiredSymbol">*</span></label>
-
-        <div class="form-check">
-          <label for="checkStud">Students</label>
-          <input class="form-check-input" type="checkbox" value="" id="checkStud">
-        </div>
-
-        <div class="form-check">
-          <label for="checkLoc">Location</label>
-          <input class="form-check-input" type="checkbox" value="" id="checkLoc">
-        </div>
-
-        <div class="form-check">
-          <label for="checkCamp">Campus</label>
-          <input class="form-check-input" type="checkbox" value="" id="checkCamp">
-        </div>
-
-        <div class="form-check">
-          <label for="checkAtm">Atmosphere</label>
-          <input class="form-check-input" type="checkbox" value="" id="checkAtm">
-        </div>
-
-        <div class="form-check">
-          <label for="checkDorm">Dorm</label>
-          <input class="form-check-input" type="checkbox" value="" id="checkDorm">
-        </div>
-
-        <div class="form-check">
-          <label for="checkSport">Sports</label>
-          <input class="form-check-input" type="checkbox" value="" id="checkSport">
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label">How'd you became interested in the University?<span
+          <label class="form-label">What did you like most about the campus?<span
             class="requiredSymbol">*</span></label>
 
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexInterest" id="flexFriend">
-            <label class="form-check-label" for="flexFriend">
-              Friends
-            </label>
+            <label for="checkStud">Students</label>
+            <input class="form-check-input" type="checkbox" value="" id="checkStud">
           </div>
 
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexInterest" id="flexTel">
-            <label class="form-check-label" for="flexTel">
-              Television
-            </label>
+            <label for="checkLoc">Location</label>
+            <input class="form-check-input" type="checkbox" value="" id="checkLoc">
           </div>
 
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexInterest" id="flexInt">
-            <label class="form-check-label" for="flexInt">
-              Internet
-            </label>
+            <label for="checkCamp">Campus</label>
+            <input class="form-check-input" type="checkbox" value="" id="checkCamp">
           </div>
 
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="flexInterest" id="flexOther">
-            <label class="form-check-label" for="flexOther">
-              Other
-            </label>
-          </div>
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label">How Likely Are You Recommend GMU?</label>
-          <select name="recommendLikelihood" class="form-select">
-            <option value="veryLikely" selected>Very Likely</option>
-            <option value="likely">Likely</option>
-            <option value="unlikely">Unlikely</option>
-          </select>
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label" for="textAreaComment">What else would you like to say?</label>
-          <textarea name="moreFeedback" class="form-control" id="textAreaComment" rows="3"
-                    placeholder="Any feedback is important!"
-                    autofocus></textarea>
-        </div>
-
-        <hr/>
-
-        <h5 class="card-title">Personal Information</h5>
-
-        <div class="row align-items-start">
-          <div class="col">
-            <label for="datalistGradMonth" class="form-label">Graduation Month</label>
-            <input name="gradMonth" class="form-control" list="datalistGradMonthList" id="datalistGradMonth"
-                   placeholder="Type to search...">
-            <datalist id="datalistGradMonthList">
-              <option value="January">
-              <option value="February">
-              <option value="March">
-              <option value="April">
-              <option value="May">
-              <option value="June">
-              <option value="July">
-              <option value="August">
-              <option value="September">
-              <option value="October">
-              <option value="November">
-              <option value="December">
-            </datalist>
+            <label for="checkAtm">Atmosphere</label>
+            <input class="form-check-input" type="checkbox" value="" id="checkAtm">
           </div>
 
-          <div class="col">
-            <label for="inputYear" class="form-label">Graduation Year</label>
-            <input name="gradYear" type="text" class="form-control" id="inputYear">
+          <div class="form-check">
+            <label for="checkDorm">Dorm</label>
+            <input class="form-check-input" type="checkbox" value="" id="checkDorm">
           </div>
-        </div>
 
-        <div class="row align-items-start">
-          <div class="col">
-            <label for="inputFirstName" class="form-label">First Name <span
+          <div class="form-check">
+            <label for="checkSport">Sports</label>
+            <input class="form-check-input" type="checkbox" value="" id="checkSport">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">How'd you became interested in the University?<span
               class="requiredSymbol">*</span></label>
-            <input name="name" type="text" class="form-control" id="inputFirstName" placeholder="First Name" required>
-          </div>
-        </div>
 
-        <div class="row align-items-start">
-          <div class="col">
-            <label for="inputLastName" class="form-label">Last Name <span
-              class="requiredSymbol">*</span></label>
-            <input name="name" type="text" class="form-control" id="inputLastName" placeholder="Last Name" required>
-          </div>
-        </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexInterest" id="flexFriend">
+              <label class="form-check-label" for="flexFriend">
+                Friends
+              </label>
+            </div>
 
-        <div class="row align-items-start">
-          <div class="col">
-            <label for="inputStreetAddress" class="form-label">Street Address <span
-              class="requiredSymbol">*</span></label>
-            <input name="address" type="text" class="form-control" id="inputStreetAddress"
-                   placeholder="Street Address"
-                   required>
-          </div>
-        </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexInterest" id="flexTel">
+              <label class="form-check-label" for="flexTel">
+                Television
+              </label>
+            </div>
 
-        <div class="row align-items-start">
-          <div class="col">
-            <label for="inputCityAddress" class="form-label">City <span
-              class="requiredSymbol">*</span></label>
-            <input name="city" type="text" class="form-control" id="inputCityAddress" placeholder="City" disabled
-                   required>
-          </div>
-          <div class="col">
-            <label for="inputStateAddress" class="form-label">State <span
-              class="requiredSymbol">*</span></label>
-            <input name="state" type="text" class="form-control" id="inputStateAddress" placeholder="State" disabled
-                   required>
-          </div>
-          <div class="col">
-            <label for="inputZipAddress" class="form-label">Zip <span
-              class="requiredSymbol">*</span></label>
-            <input name="zip" type="text" class="form-control" id="inputZipAddress" placeholder="Zip"
-                   (focusout)="getCityStateFromZip();"
-                   autocomplete="off"
-                   required>
-            <div id="invalidZip" class="invalid-feedback">
-              Please provide a valid zip.
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexInterest" id="flexInt">
+              <label class="form-check-label" for="flexInt">
+                Internet
+              </label>
+            </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexInterest" id="flexOther">
+              <label class="form-check-label" for="flexOther">
+                Other
+              </label>
             </div>
           </div>
+
+          <div class="mb-3">
+            <label class="form-label">How Likely Are You Recommend GMU?</label>
+            <select name="recommendLikelihood" class="form-select">
+              <option value="veryLikely" selected>Very Likely</option>
+              <option value="likely">Likely</option>
+              <option value="unlikely">Unlikely</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label" for="textAreaComment">What else would you like to say?</label>
+            <textarea name="moreFeedback" class="form-control" id="textAreaComment" rows="3"
+                      placeholder="Any feedback is important!"
+                      autofocus></textarea>
+          </div>
+
+          <hr/>
+
+          <h5 class="card-title">Personal Information</h5>
+
+          <div class="row align-items-start">
+            <div class="col">
+                <label for="inputFirstName" class="form-label">First Name <span
+                  class="requiredSymbol">*</span></label>
+                <input name="name" type="text" class="form-control" id="inputFirstName" placeholder="First Name" required>
+            </div>
+
+            <div class="col">
+              <label for="inputLastName" class="form-label">Last Name <span
+                class="requiredSymbol">*</span></label>
+              <input name="name" type="text" class="form-control" id="inputLastName" placeholder="Last Name" required>
+            </div>
+          </div>
+
+          <div class="row align-items-start">
+            <div class="col">
+              <label for="inputStreetAddress" class="form-label">Street Address <span
+                class="requiredSymbol">*</span></label>
+              <input name="address" type="text" class="form-control" id="inputStreetAddress"
+                     placeholder="Street Address"
+                     required>
+            </div>
+          </div>
+
+          <div class="row align-items-start">
+            <div class="col">
+              <label for="inputCityAddress" class="form-label">City <span
+                class="requiredSymbol">*</span></label>
+              <input name="city" type="text" class="form-control" id="inputCityAddress" placeholder="City" disabled
+                     required>
+            </div>
+            <div class="col">
+              <label for="inputStateAddress" class="form-label">State <span
+                class="requiredSymbol">*</span></label>
+              <input name="state" type="text" class="form-control" id="inputStateAddress" placeholder="State" disabled
+                     required>
+            </div>
+            <div class="col">
+              <label for="inputZipAddress" class="form-label">Zip <span
+                class="requiredSymbol">*</span></label>
+              <input name="zip" type="text" class="form-control" id="inputZipAddress" placeholder="Zip"
+                     (focusout)="getCityStateFromZip();"
+                     autocomplete="off"
+                     required>
+              <div id="invalidZip" class="invalid-feedback">
+                Please provide a valid zip.
+              </div>
+            </div>
+          </div>
+
+          <div class="row align-items-start">
+            <div class="col">
+              <label for="inputTelephone" class="form-label">Telephone<span class="requiredSymbol">*</span></label>
+              <input name="phone" type="tel" class="form-control" id="inputTelephone"
+                     placeholder="###-###-####"
+                     pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+            </div>
+
+            <div class="col">
+              <label for="inputEmail" class="form-label">Email <span class="requiredSymbol">*</span></label>
+              <input name="email" type="email" class="form-control" id="inputEmail"
+                     placeholder="sample@email.com"
+                     required>
+            </div>
+          </div>
+
+          <div class="row align-items-start">
+            <div class="col">
+              <label for="inputDate" class="form-label">Date of Survey<span class="requiredSymbol">*</span></label>
+              <input name="todaysDate" type="date" class="form-control" id="inputDate" required>
+            </div>
+          </div>
+
+          <div class="row align-items-start" id="personalInfoAlert">
+            <div class="col">
+              <div class="alert alert-danger" role="alert" id="personalInfoAlertMessage"></div>
+            </div>
+          </div>
+
+          <button type="reset" class="btn btn-secondary" style="margin-top: 10px; margin-right: 5px;" (click)="resetSurveyForm()">Cancel
+          </button>
+          <button type="submit" class="btn btn-primary" style="margin-top: 10px;" (click)="validateSurveyData()">
+            Submit
+          </button>
         </div>
-
-        <div class="row align-items-start">
-          <div class="col">
-            <label for="inputEmail" class="form-label">Email <span class="requiredSymbol">*</span></label>
-            <input name="email" type="email" class="form-control" id="inputEmail"
-                   placeholder="sample@email.com"
-                   required>
-          </div>
-
-          <div class="col">
-            <label for="inputTelephone" class="form-label">Telephone<span class="requiredSymbol">*</span></label>
-            <input name="phone" type="tel" class="form-control" id="inputTelephone"
-                   placeholder="###-###-####"
-                   pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
-          </div>
-        </div>
-
-        <div class="row align-items-start">
-          <div class="col">
-            <label for="username" class="form-label">Username</label>
-            <input name="username" type="text" class="form-control" id="username" placeholder="Username">
-          </div>
-
-          <div class="col">
-            <label for="inputUrl" class="form-label">URL</label>
-            <input name="website" type="text" class="form-control" id="inputUrl" placeholder="sample.com">
-          </div>
-        </div>
-
-        <div class="row align-items-start">
-          <div class="col">
-            <label for="inputDate" class="form-label">Date of Survey<span class="requiredSymbol">*</span></label>
-            <input name="todaysDate" type="date" class="form-control" id="inputDate" required>
-          </div>
-        </div>
-
-        <div class="row align-items-start" id="personalInfoAlert">
-          <div class="col">
-            <div class="alert alert-danger" role="alert" id="personalInfoAlertMessage"></div>
-          </div>
-        </div>
-
-        <button type="reset" class="btn btn-secondary" style="margin-top: 10px;" (click)="resetSurveyForm()">Reset</button>
-        <button type="submit" class="btn btn-primary" style="margin-top: 10px;" (click)="validateSurveyData()">Submit</button>
       </div>
-    </div>
-  </form>
-</div>
+    </form>
+  </div>
+
+  <div id="allSurvey" class="webpage survey" style="display: none;">
+    <h4>Here are a list of info from previous survey taken:</h4>
+  </div>
 </div>
