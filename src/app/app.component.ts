@@ -208,7 +208,7 @@ export class AppComponent {
 
   submitSurveyForm() {
     //TODO: Change the url here Veeda once you got the API set up
-    let apiUrl = '/survey/submitSurvey';
+    let apiUrl = 'http://localhost:8080/api/surveys/submit-survey';
 
     let fieldsMapping = {
       "inputFirstName": "firstName",
@@ -244,11 +244,12 @@ export class AppComponent {
   }
 
   getPreviousSurveyData() {
-    //TODO: Change the url here Veeda once you got the API set up
-    let apiUrl = '/survey/getListOfAllSurveys';
+    let apiUrl = 'http://localhost:8080/api/surveys';
 
     axios.get(apiUrl)
       .then(response => {
+
+        console.warn(new Date())
         let data = response.data;
 
         if (Array.isArray(data) && data.length > 0) {
@@ -257,31 +258,32 @@ export class AppComponent {
           this.previousSurveyData = [];
         }
       }).catch(() => {
+        console.warn("There was an error fetching the surveys")
       //TODO: Delete this sample data
-      this.previousSurveyData = [
-        {
-          firstName: "Lord",
-          lastName: "Mendoza",
-          streetAddress: "123 Sesame St",
-          city: "Vienna",
-          state: "VA",
-          zip: "22181",
-          telephoneNo: "111-111-1111",
-          email: "sample@email.com",
-          dateOfSurvey: new Date()
-        },
-        {
-          firstName: "Veeda",
-          lastName: "Sherzadah",
-          streetAddress: "123 Clown Dr.",
-          city: "Arlington",
-          state: "VA",
-          zip: "23417",
-          telephoneNo: "222-222-2222",
-          email: "clownjuice@email.com",
-          dateOfSurvey: new Date()
-        }
-      ];
+      // this.previousSurveyData = [
+      //   {
+      //     firstName: "Lord",
+      //     lastName: "Mendoza",
+      //     streetAddress: "123 Sesame St",
+      //     city: "Vienna",
+      //     state: "VA",
+      //     zip: "22181",
+      //     telephoneNo: "111-111-1111",
+      //     email: "sample@email.com",
+      //     dateOfSurvey: new Date()
+      //   },
+      //   {
+      //     firstName: "Veeda",
+      //     lastName: "Sherzadah",
+      //     streetAddress: "123 Clown Dr.",
+      //     city: "Arlington",
+      //     state: "VA",
+      //     zip: "23417",
+      //     telephoneNo: "222-222-2222",
+      //     email: "clownjuice@email.com",
+      //     dateOfSurvey: new Date()
+      //   }
+      // ];
     })
   }
 }

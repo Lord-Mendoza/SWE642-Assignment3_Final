@@ -1,23 +1,22 @@
-package com.swe642.hw3.entities;
+package com.swe642.hw3.model;
 
-import java.time.Instant;
+import java.sql.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 
 @Entity
-@Table(name="surveyTable")
+@Table(name="survey_table")
 public class SurveyTableEntity {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 	
 	@Column(name="first_name", nullable=false)
 	private String firstName;
@@ -34,20 +33,23 @@ public class SurveyTableEntity {
 	@Column(name="zip", nullable=false)
 	private int zip;
 	
+	@Column(name="state", nullable=false)
+	private String state;
+	
 	@Column(name="phone", nullable=false)
-	private String phone;
+	private String telephoneNo;
 	
 	@Column(name="email", nullable=false)
 	private String email;
 	
 	@Column(name="date", nullable=false)
-	private Instant date;
+	private Date dateOfSurvey;
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -90,36 +92,48 @@ public class SurveyTableEntity {
 	public void setZip(int zip) {
 		this.zip = zip;
 	}
+	
 
-	public String getPhone() {
-		return phone;
+	public String getState() {
+		return state;
 	}
 
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setState(String state) {
+		this.state = state;
 	}
 
+	public String getTelephoneNo() {
+		return telephoneNo;
+	}
+
+	public void setTelephoneNo(String telephoneNo) {
+		this.telephoneNo = telephoneNo;
+	}
+
+	public Date getDateOfSurvey() {
+		return dateOfSurvey;
+	}
+
+	public void setDateOfSurvey(Date dateOfSurvey) {
+		this.dateOfSurvey = dateOfSurvey;
+	}
+	
 	public String getEmail() {
 		return email;
 	}
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
 
-	public Instant getDate() {
-		return date;
-	}
-
-	public void setDate(Instant date) {
-		this.date = date;
 	}
 
 	@Override
 	public String toString() {
 		return "SurveyTableEntity [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName
-				+ ", streetAddress=" + streetAddress + ", city=" + city + ", zip=" + zip + ", phone=" + phone
-				+ ", email=" + email + ", date=" + date + "]";
+				+ ", streetAddress=" + streetAddress + ", city=" + city + ", zip=" + zip + ", state=" + state
+				+ ", telephoneNo=" + telephoneNo + ", email=" + email + ", dateOfSurvey=" + dateOfSurvey + "]";
 	}
+	
+	
 
 }
