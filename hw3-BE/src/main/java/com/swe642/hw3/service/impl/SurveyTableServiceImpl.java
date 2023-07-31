@@ -1,3 +1,12 @@
+/*
+Lord Mendoza & Veeda Sherzadah
+SWE 642
+
+This class is the implementation of the interface of the service layer, where the individual queries
+are performed for retrieving list of saved surveys to db, and saving a row of survey data to table in the
+db.
+ */
+
 package com.swe642.hw3.service.impl;
 
 import java.util.List;
@@ -12,7 +21,7 @@ import com.swe642.hw3.service.SurveyTableService;
 public class SurveyTableServiceImpl implements SurveyTableService {
 
 	public SurveyTableRepository surveyTableRepo;
-	
+
 	public SurveyTableServiceImpl(SurveyTableRepository surveyTableRepo) {
 		super();
 		this.surveyTableRepo = surveyTableRepo;

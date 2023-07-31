@@ -1,3 +1,11 @@
+/*
+Lord Mendoza & Veeda Sherzadah
+SWE 642
+
+This controller is the entry point for the REST APIs that takes the GET/POST requests from frontend, and
+passes the work to service layer.
+ */
+
 package com.swe642.hw3.controller;
 
 import java.util.List;

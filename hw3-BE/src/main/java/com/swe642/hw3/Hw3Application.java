@@ -1,3 +1,10 @@
+/*
+Lord Mendoza & Veeda Sherzadah
+SWE 642
+
+This class is the main entrypoint
+ */
+
 package com.swe642.hw3;
 
 import org.springframework.boot.SpringApplication;

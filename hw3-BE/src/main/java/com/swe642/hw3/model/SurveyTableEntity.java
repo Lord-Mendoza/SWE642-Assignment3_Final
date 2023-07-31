@@ -1,3 +1,10 @@
+/*
+Lord Mendoza & Veeda Sherzadah
+SWE 642
+
+This model represents the entity of the backend for the survey_table table & all its columns/column-types.
+ */
+
 package com.swe642.hw3.model;
 
 import java.sql.Date;
