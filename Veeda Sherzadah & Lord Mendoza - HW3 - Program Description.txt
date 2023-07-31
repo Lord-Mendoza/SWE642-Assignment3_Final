@@ -1,0 +1,5 @@
+The frontend was implemented using Angular CLI with the components initialized that way, and stylings and js logic added in. API calls are made inside the .tsx files using Axios package.
+
+The backend uses Springboot with Maven to build/deploy the backend server of the project. REST APIs reside in the controller, which connects to the database via the service layer where the calls are processed and data either gets sent back, or data is received from the frontend based on a model and adds it as a new row in the table.
+
+Together the survey website works as required.
