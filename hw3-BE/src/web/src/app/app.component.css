@@ -57,3 +57,7 @@ h1 {
 .row {
   padding: 5px;
 }
+
+.nav-item {
+  cursor: pointer;
+}

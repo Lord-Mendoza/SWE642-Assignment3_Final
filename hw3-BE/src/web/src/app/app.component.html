@@ -6,7 +6,7 @@
 
   <!--header-->
   <nav class="navbar header">
-  <span class="navbar-brand mb-0 h1"><a (click)="viewPage('welcomePage')"><img src="./assets/logo.png" width="30"
+  <span class="navbar-brand mb-0 h1"><a (click)="viewPage('welcomePage')"><img src="../assets/logo.png" width="30"
                                                                                height="30" alt=""></a>
     <span class="headerTitle"
           (click)="viewPage('welcomePage')">George Mason University - Department of Computer Science</span>
@@ -170,60 +170,60 @@
 
           <div class="form-check">
             <label for="checkStud">Students</label>
-            <input class="form-check-input" type="checkbox" value="" id="checkStud">
+            <input class="form-check-input" name="likedMostAboutUniversity" type="checkbox" value="students" id="checkStud">
           </div>
 
           <div class="form-check">
             <label for="checkLoc">Location</label>
-            <input class="form-check-input" type="checkbox" value="" id="checkLoc">
+            <input class="form-check-input" name="likedMostAboutUniversity" type="checkbox" value="location" id="checkLoc">
           </div>
 
           <div class="form-check">
             <label for="checkCamp">Campus</label>
-            <input class="form-check-input" type="checkbox" value="" id="checkCamp">
+            <input class="form-check-input" name="likedMostAboutUniversity" type="checkbox" value="campus" id="checkCamp">
           </div>
 
           <div class="form-check">
             <label for="checkAtm">Atmosphere</label>
-            <input class="form-check-input" type="checkbox" value="" id="checkAtm">
+            <input class="form-check-input" name="likedMostAboutUniversity" type="checkbox" value="atmosphere" id="checkAtm">
           </div>
 
           <div class="form-check">
             <label for="checkDorm">Dorm</label>
-            <input class="form-check-input" type="checkbox" value="" id="checkDorm">
+            <input class="form-check-input" name="likedMostAboutUniversity" type="checkbox" value="dorm" id="checkDorm">
           </div>
 
           <div class="form-check">
             <label for="checkSport">Sports</label>
-            <input class="form-check-input" type="checkbox" value="" id="checkSport">
+            <input class="form-check-input" name="likedMostAboutUniversity" type="checkbox" value="sport" id="checkSport">
           </div>
 
           <div class="mb-3">
             <label class="form-label">How'd you became interested in the University?</label>
 
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexInterest" id="flexFriend">
+              <input class="form-check-input" type="radio" name="flexInterest" id="flexFriend" value="friend">
               <label class="form-check-label" for="flexFriend">
                 Friends
               </label>
             </div>
 
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexInterest" id="flexTel">
+              <input class="form-check-input" type="radio" name="flexInterest" id="flexTel" value="telephone">
               <label class="form-check-label" for="flexTel">
                 Television
               </label>
             </div>
 
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexInterest" id="flexInt">
+              <input class="form-check-input" type="radio" name="flexInterest" id="flexInt" value="interest">
               <label class="form-check-label" for="flexInt">
                 Internet
               </label>
             </div>
 
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexInterest" id="flexOther">
+              <input class="form-check-input" type="radio" name="flexInterest" id="flexOther" value="other">
               <label class="form-check-label" for="flexOther">
                 Other
               </label>
@@ -274,7 +274,10 @@
             <th scope="col">Zip</th>
             <th scope="col">Tel. No.</th>
             <th scope="col">Email</th>
-            <th scope="col">Date of Survey</th>
+            <th scope="col">Liked Most About University</th>
+            <th scope="col">How'd Become Interested</th>
+            <th scope="col">Recommendation Likelihood</th>
+            <th scope="col">More Feedback</th>
           </tr>
           </thead>
           <tbody>
@@ -288,6 +291,10 @@
             <td>{{ surveyData.telephoneNo}}</td>
             <td>{{ surveyData.email}}</td>
             <td>{{ surveyData.dateOfSurvey}}</td>
+            <td>{{ surveyData.likedMostAboutUniversity.toString()}}</td>
+            <td>{{ surveyData.flexInterest}}</td>
+            <td>{{ surveyData.recommendLikelihood}}</td>
+            <td>{{ surveyData.moreFeedback}}</td>
           </tr>
           </tbody>
         </table>

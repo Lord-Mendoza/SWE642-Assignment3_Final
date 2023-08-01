@@ -19,7 +19,11 @@ interface SurveyData {
   zip: string,
   telephoneNo: string,
   email: string,
-  dateOfSurvey: Date
+  dateOfSurvey: Date,
+  likedMostAboutUniversity: String[],
+  flexInterest: string,
+  recommendLikelihood: string,
+  moreFeedback: string
 }
 
 @Component({
@@ -41,6 +45,22 @@ export class AppComponent {
     "inputTelephone",
     "inputEmail",
     "inputDate"
+  ];
+
+  fields = [
+    "inputFirstName",
+    "inputLastName",
+    "inputStreetAddress",
+    "inputCityAddress",
+    "inputStateAddress",
+    "inputZipAddress",
+    "inputTelephone",
+    "inputEmail",
+    "inputDate",
+    "likedMostAboutUniversity",
+    "flexInterest",
+    "recommendLikelihood",
+    "textAreaComment"
   ];
 
   constructor(private modalService: NgbModal) {
@@ -207,7 +227,6 @@ export class AppComponent {
   }
 
   submitSurveyForm() {
-    //TODO: Change the url here Veeda once you got the API set up
     let apiUrl = 'http://localhost:8080/api/surveys/submit-survey';
 
     let fieldsMapping = {
@@ -219,32 +238,57 @@ export class AppComponent {
       "inputZipAddress": "zip",
       "inputTelephone": "telephoneNo",
       "inputEmail": "email",
-      "inputDate": "dateOfSurvey"
+      "inputDate": "dateOfSurvey",
+      "likedMostAboutUniversity": "likedMostAboutUniversity",
+      "flexInterest": "howInterestInUniversity",
+      "recommendLikelihood": "recommendLikelihood",
+      "textAreaComment": "moreFeedback"
     };
 
     let postData = {};
-    for (let i = 0; i < this.requiredFields.length; i++) {
-      let currentRequiredField = this.requiredFields[i];
+    for (let i = 0; i < this.fields.length; i++) {
+      let currentField = this.fields[i];
 
-      // @ts-ignore
-      let currentRequiredFieldValue = document.getElementById(currentRequiredField).value;
-
-      if (!this.isEmptyString(currentRequiredFieldValue)) {
+      let currentFieldValue;
+      if (currentField === "recommendLikelihood") {
         // @ts-ignore
-        postData[fieldsMapping[currentRequiredField]] = currentRequiredFieldValue;
+        currentFieldValue = document.getElementsByName(currentField)[0].value;
+      } else if (["likedMostAboutUniversity", "flexInterest"].includes(currentField)) {
+        // @ts-ignore
+        currentFieldValue = document.getElementsByName(currentField);
+
+        let checkedItems = [];
+        for (let j = 0; j < currentFieldValue.length; j++) {
+          // @ts-ignore
+          if (currentFieldValue[j].checked) { // @ts-ignore
+            checkedItems.push(currentFieldValue[j].defaultValue);
+          }
+        }
+
+        currentFieldValue = checkedItems;
+      } else {
+        // @ts-ignore
+        currentFieldValue = document.getElementById(currentField).value;
+      }
+
+      if (
+        (!["likedMostAboutUniversity", "flexInterest"].includes(currentField) && !this.isEmptyString(currentFieldValue))
+        || (["likedMostAboutUniversity", "flexInterest"].includes(currentField) && currentFieldValue.length > 0)) {
+        // @ts-ignore
+        postData[fieldsMapping[currentField]] = currentFieldValue;
       }
     }
 
     axios.post(apiUrl, postData)
-      .then(response => {
+      .then(() => {
         alert("Form Submitted!")
       }).catch(() => {
-      alert("Form Submitted! - Test")
+      alert("Form failed to submit, please try again!")
     })
   }
 
   getPreviousSurveyData() {
-    let apiUrl = 'http://localhost:8080/api/surveys';
+    let apiUrl = 'http://localhost:8080/api/surveys/get-all-surveys';
 
     axios.get(apiUrl)
       .then(response => {
@@ -258,32 +302,7 @@ export class AppComponent {
           this.previousSurveyData = [];
         }
       }).catch(() => {
-        console.warn("There was an error fetching the surveys")
-      //TODO: Delete this sample data
-      // this.previousSurveyData = [
-      //   {
-      //     firstName: "Lord",
-      //     lastName: "Mendoza",
-      //     streetAddress: "123 Sesame St",
-      //     city: "Vienna",
-      //     state: "VA",
-      //     zip: "22181",
-      //     telephoneNo: "111-111-1111",
-      //     email: "sample@email.com",
-      //     dateOfSurvey: new Date()
-      //   },
-      //   {
-      //     firstName: "Veeda",
-      //     lastName: "Sherzadah",
-      //     streetAddress: "123 Clown Dr.",
-      //     city: "Arlington",
-      //     state: "VA",
-      //     zip: "23417",
-      //     telephoneNo: "222-222-2222",
-      //     email: "clownjuice@email.com",
-      //     dateOfSurvey: new Date()
-      //   }
-      // ];
+      this.previousSurveyData = [];
     })
   }
 }

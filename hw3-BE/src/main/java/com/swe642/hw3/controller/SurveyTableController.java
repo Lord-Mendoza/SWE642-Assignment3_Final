@@ -18,19 +18,19 @@ import com.swe642.hw3.service.SurveyTableService;
 @RequestMapping("/api/surveys")
 @CrossOrigin
 public class SurveyTableController {
-	
+
 	private SurveyTableService surveyTableService;
-	
+
 	public SurveyTableController(SurveyTableService surveyTableService) {
 		this.surveyTableService = surveyTableService;
 	}
-	
+
 	@GetMapping
 	public ResponseEntity<List<SurveyTableEntity>> getAllSurveyEntries() {
 		List<SurveyTableEntity> resp = surveyTableService.getAllSurveys();
 		return new ResponseEntity<List<SurveyTableEntity>>(resp, HttpStatus.OK);
 	}
-	
+
 	@PostMapping("/submit-survey")
 	public ResponseEntity<SurveyTableEntity> saveSurveyEntry(@RequestBody SurveyTableEntity survey) {
 		SurveyTableEntity resp = surveyTableService.saveSurveyEntry(survey);
