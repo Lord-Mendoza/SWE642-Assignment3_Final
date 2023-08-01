@@ -51,7 +51,7 @@ public class SurveyTableEntity {
   private String email;
 
   @Column(name = "date", nullable = false)
-  private Date dateOfSurvey;
+  private String dateOfSurvey;
   @Column(name = "likedMostAboutUniversity")
   private List<String> likedMostAboutUniversity;
   @Column(name = "recommendLikelihood")
@@ -124,11 +124,11 @@ public class SurveyTableEntity {
     this.telephoneNo = telephoneNo;
   }
 
-  public Date getDateOfSurvey() {
+  public String getDateOfSurvey() {
     return dateOfSurvey;
   }
 
-  public void setDateOfSurvey(Date dateOfSurvey) {
+  public void setDateOfSurvey(String dateOfSurvey) {
     this.dateOfSurvey = dateOfSurvey;
   }
 
