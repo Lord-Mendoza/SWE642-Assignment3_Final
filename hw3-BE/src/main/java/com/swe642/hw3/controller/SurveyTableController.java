@@ -41,15 +41,6 @@ public class SurveyTableController {
 
 	@PostMapping("/submit-survey")
 	public ResponseEntity<SurveyTableEntity> saveSurveyEntry(@RequestBody SurveyTableEntity survey) {
-		System.out.println("");
-		System.out.println("");
-		System.out.println("");
-		System.out.println(survey);
-		System.out.println("");
-		System.out.println("");
-		System.out.println("");
-		System.out.println("");
-
 		SurveyTableEntity resp = surveyTableService.saveSurveyEntry(survey);
 		return new ResponseEntity<SurveyTableEntity>(resp, HttpStatus.OK);
 	}

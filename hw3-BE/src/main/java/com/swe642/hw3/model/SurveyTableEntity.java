@@ -7,8 +7,6 @@ This model represents the entity of the backend for the survey_table table & all
 
 package com.swe642.hw3.model;
 
-import java.sql.Date;
-import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -52,12 +50,19 @@ public class SurveyTableEntity {
 
   @Column(name = "date", nullable = false)
   private String dateOfSurvey;
-  @Column(name = "likedMostAboutUniversity")
-  private List<String> likedMostAboutUniversity;
-  @Column(name = "recommendLikelihood")
+  
+  @Column(name = "liked_most_about_university")
+  private String likedMostAboutUniversity;
+  
+  @Column(name = "interest_in_univ")
+  private String flexInterest;
+  
+  @Column(name = "recommend_likelihood")
   private String recommendLikelihood;
-  @Column(name = "moreFeedback")
+  
+  @Column(name = "more_feedback")
   private String moreFeedback;
+
 
   public Long getId() {
     return id;
@@ -140,15 +145,23 @@ public class SurveyTableEntity {
     this.email = email;
   }
 
-  public List<String> getLikedMostAboutUniversity() {
+  public String getLikedMostAboutUniversity() {
     return likedMostAboutUniversity;
   }
 
-  public void setLikedMostAboutUniversity(List<String> likedMostAboutUniversity) {
+  public void setLikedMostAboutUniversity(String likedMostAboutUniversity) {
     this.likedMostAboutUniversity = likedMostAboutUniversity;
   }
 
-  public String getRecommendLikelihood() {
+  public String getFlexInterest() {
+	return flexInterest;
+}
+
+public void setFlexInterest(String flexInterest) {
+	this.flexInterest = flexInterest;
+}
+
+public String getRecommendLikelihood() {
     return recommendLikelihood;
   }
 
@@ -164,15 +177,14 @@ public class SurveyTableEntity {
     this.moreFeedback = moreFeedback;
   }
 
-  @Override
-  public String toString() {
-    return "SurveyTableEntity [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName
-      + ", streetAddress=" + streetAddress + ", city=" + city + ", zip=" + zip + ", state=" + state
-      + ", telephoneNo=" + telephoneNo + ", email=" + email + ", dateOfSurvey=" + dateOfSurvey
-      + ", likedMostAboutUniversity=" + likedMostAboutUniversity.toString() + ", recommendLikelihood="
-      + recommendLikelihood + ", moreFeedback=" + moreFeedback
-      + "]";
-  }
+@Override
+public String toString() {
+	return "SurveyTableEntity [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", streetAddress="
+			+ streetAddress + ", city=" + city + ", zip=" + zip + ", state=" + state + ", telephoneNo=" + telephoneNo
+			+ ", email=" + email + ", dateOfSurvey=" + dateOfSurvey + ", likedMostAboutUniversity="
+			+ likedMostAboutUniversity + ", howInterestInUniversity=" + flexInterest
+			+ ", recommendLikelihood=" + recommendLikelihood + ", moreFeedback=" + moreFeedback + "]";
+}
 
 
 }

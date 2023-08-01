@@ -240,7 +240,7 @@ export class AppComponent {
       "inputEmail": "email",
       "inputDate": "dateOfSurvey",
       "likedMostAboutUniversity": "likedMostAboutUniversity",
-      "flexInterest": "howInterestInUniversity",
+      "flexInterest": "flexInterest",
       "recommendLikelihood": "recommendLikelihood",
       "textAreaComment": "moreFeedback"
     };
@@ -274,8 +274,8 @@ export class AppComponent {
       if (
         (!["likedMostAboutUniversity", "flexInterest"].includes(currentField) && !this.isEmptyString(currentFieldValue))
         || (["likedMostAboutUniversity", "flexInterest"].includes(currentField) && currentFieldValue.length > 0)) {
-        // @ts-ignore
-        postData[fieldsMapping[currentField]] = currentFieldValue;
+          // @ts-ignore
+        postData[fieldsMapping[currentField]] = currentFieldValue.toString();
       }
     }
 
@@ -293,7 +293,6 @@ export class AppComponent {
     axios.get(apiUrl)
       .then(response => {
 
-        console.warn(new Date())
         let data = response.data;
 
         if (Array.isArray(data) && data.length > 0) {
