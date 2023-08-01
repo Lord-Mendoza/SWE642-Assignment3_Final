@@ -1,0 +1,28 @@
+Lord Mendoza and Veeda Sherzadah
+
+This application combines an Angular Front End (FE) with a SpringBoot Back End (BE) to create a fully functioning,
+end to end application that allows users to submit a form, as well as view all the previous forms.
+
+We used a mySQL Database that we set up locally with the create scripts in our application.properties file.
+
+The structure of our application is as follows:
+- SWE642-Assignment3_Final
+    - hw3-BE (should be renamed to something more generic but we receieved errors editing the name so we left it as is)
+        - src   
+            - main: contains the Back End Java implementation
+                - can be run using an IDE or packing the snapshot and running it.
+            - web: contains the Front End Angular implementation.
+                - can be run using 'npm run start' / 'ng serve'
+
+We used SpringBoot 3.1.2, which is why we used Jakarta attributes in our Entity file
+rather than javax, which was no longer supported past SpringBoot 2.7.something.
+
+All of the endpoints can be accessed via our UI using the navigation tabs on the top of the page.
+    /api/surveys/submit-survey
+    - the FE creates a SurveyTableEntity object that it sends to the BE.
+    - using jpa, our BE automatically maps out entity to the database, making it easy to save using JpaRepository.
+
+
+    /api/surveys/get-all-surveys
+    - once again, using JpaRepository, we can easily use a "findAll()" operation to retrieve all the
+    entities saved in the database and send them as a list to the FE to display on a table.
